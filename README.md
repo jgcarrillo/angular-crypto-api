@@ -19,7 +19,7 @@ This is a basic pet project for using a cryptocurrency API with Angular and Netl
 
 For a future use it is simply to deploy an Angular web to Netlify. You just need to create a **Github repository** and then authorize Netlify to connect to it. You just need to change the **Build command:** to `ng build --prod` and the **Publish directory:** to `the name of the folder for your Angular project locally`.
 
-To know that you can run `ng build --prod` and check the folder Angular has created.
+To know that you can run `ng build --prod` and check the folder Angular has created. The publish directory will be `dist/{your-angular-folder-name}`.
 
 ## 💛 Contact
 
