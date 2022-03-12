@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-7">
+    <dl>
+      <dt>Nombre</dt>
+      <dd>{{ coin.name }}</dd>
+    </dl>
+    <dl>
+      <dt>Símbolo</dt>
+      <dd>{{ coin.symbol | uppercase }}</dd>
+    </dl>
+    <dl>
+      <dt>Descripción</dt>
+      <dd>{{ coin.desc }}</dd>
+    </dl>
+
+    <p>
+      <button [routerLink]="['/favs']" type="button" class="btn btn-primary">
+        Volver a Favoritos
+      </button>
+    </p>
+  </div>
+  <div class="col-5">
+    <img src="{{ coin.image }}" class="card-img-top" />
+  </div>
+</div>

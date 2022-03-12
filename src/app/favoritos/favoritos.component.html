@@ -1,0 +1,48 @@
+<h1 class="text-center display-4 my-4">Monedas favoritas</h1>
+
+<ng-container *ngIf="getFavoriteCoins()?.length > 0">
+  <button (click)="vaciarLista()" class="btn btn-danger my-4 w-100">
+    Vaciar lista
+  </button>
+</ng-container>
+
+<ng-container *ngIf="getFavoriteCoins()?.length == 0; else bloque">
+  <div class="alert alert-danger text-center my-4" role="alert">
+    Todavía no has seleccionado monedas favoritas
+  </div>
+</ng-container>
+
+<ng-template #bloque>
+  <ng-container *ngFor="let coin of getFavoriteCoins()">
+    <div class="card bg-dark text-center bg-light mb-2 mr-2">
+      <a>
+        <img
+          src="{{ coin.image }}"
+          class="card-img-top mt-2"
+          style="width: 4rem"
+        />
+      </a>
+      <div class="card-body">
+        <p class="card-text">
+          {{ coin.name }}
+          <span class="text-muted">{{ coin.symbol | uppercase }}</span>
+        </p>
+        <p class="card-text">{{ coin.current_price | number }} €</p>
+        <button
+          type="button"
+          [routerLink]="['/detail', coin.id]"
+          class="btn btn-primary mx-2"
+        >
+          Detalles
+        </button>
+        <button
+          (click)="deleteFavorita(coin)"
+          type="button"
+          class="btn btn-danger"
+        >
+          Borrar
+        </button>
+      </div>
+    </div>
+  </ng-container>
+</ng-template>
